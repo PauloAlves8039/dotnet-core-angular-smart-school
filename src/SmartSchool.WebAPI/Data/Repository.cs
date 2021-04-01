@@ -25,7 +25,7 @@ namespace src.SmartSchool.WebAPI.Data
 
         public void Delete<T>(T entity) where T : class
         {
-            _context.Add(entity);
+            _context.Remove(entity);
         }
 
         public bool SaveChanges()
