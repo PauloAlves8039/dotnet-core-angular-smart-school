@@ -1,0 +1,303 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SmartSchool.WebAPI</name>
+    </assembly>
+    <members>
+        <member name="T:src.SmartSchool.WebAPI.Controllers.AlunoController">
+            <summary>
+            Controlador responsável por funcionalidades relacionadas a entidade Aluno.
+            </summary>
+        </member>
+        <member name="F:src.SmartSchool.WebAPI.Controllers.AlunoController._repo">
+            <summary>
+            Propriedade responsável por injetar repositório.
+            </summary>
+        </member>
+        <member name="F:src.SmartSchool.WebAPI.Controllers.AlunoController._mapper">
+            <summary>
+            Propriedade responsável por injetar mapeamento.
+            </summary>
+        </member>
+        <member name="M:src.SmartSchool.WebAPI.Controllers.AlunoController.#ctor(src.SmartSchool.WebAPI.Data.IRepository,AutoMapper.IMapper)">
+            <summary>
+            Construtor responsável por atribuir injecção de dependência do Repositório e Mapeamento. 
+            </summary>
+            <param name="repo">Parâmetro de definição do repositório.</param>
+            <param name="mapper">Parâmetro de definição do mapeamento.</param>
+        </member>
+        <member name="M:src.SmartSchool.WebAPI.Controllers.AlunoController.Get">
+            <summary>
+            Método responsável por obter registros de todos os alunos.
+            </summary>
+            <returns>Registros de todos os alunos</returns>
+        </member>
+        <member name="M:src.SmartSchool.WebAPI.Controllers.AlunoController.GetById(System.Int32)">
+            <summary>
+            Método responsável por obter registro de aluno(a) por Id.
+            </summary>
+            <param name="id">Parâmetro de pesquisa do aluno(a).</param>
+            <returns>Registro de um aluno(a) por Id.</returns>
+        </member>
+        <member name="M:src.SmartSchool.WebAPI.Controllers.AlunoController.Post(src.SmartSchool.WebAPI.Dtos.AlunoRegistrarDto)">
+            <summary>
+            Método responsável por adicionar registro de aluno(a).
+            </summary>
+            <param name="model">Instância da classe AlunoRegistrarDto.</param>
+            <returns>Novo registro do aluno(a).</returns>
+        </member>
+        <member name="M:src.SmartSchool.WebAPI.Controllers.AlunoController.Put(System.Int32,src.SmartSchool.WebAPI.Dtos.AlunoRegistrarDto)">
+            <summary>
+            Método responsável por atualizar todo o registro do aluno(a).
+            </summary>
+            <param name="id">Parâmetro de pesquisa do aluno(a).</param>
+            <param name="model">Instância da classe AlunoRegistrarDto.</param>
+            <returns>Registro atualizado do aluno(a).</returns>
+        </member>
+        <member name="M:src.SmartSchool.WebAPI.Controllers.AlunoController.Patch(System.Int32,src.SmartSchool.WebAPI.Dtos.AlunoRegistrarDto)">
+            <summary>
+            Método responsável por atualizar parcialmente o registro do aluno(a).
+            </summary>
+            <param name="id">Parâmetro de pesquisa do aluno(a).</param>
+            <param name="model">Instância da classe AlunoRegistrarDto.</param>
+            <returns>Registro parcialmente atualizado do aluno(a).</returns>
+        </member>
+        <member name="M:src.SmartSchool.WebAPI.Controllers.AlunoController.Delete(System.Int32)">
+            <summary>
+            Método responsável por excluir registro de aluno(a).
+            </summary>
+            <param name="id">Parâmetro de pesquisa do aluno(a).</param>
+            <returns>Confirmação da exclusão do registro de aluno(a).</returns>
+        </member>
+        <member name="T:src.SmartSchool.WebAPI.Controllers.ProfessorController">
+            <summary>
+            Controlador responsável por funcionalidades relacionadas a entidade Professor.
+            </summary>
+        </member>
+        <member name="F:src.SmartSchool.WebAPI.Controllers.ProfessorController._repo">
+            <summary>
+            Propriedade responsável por injetar repositório.
+            </summary>
+        </member>
+        <member name="F:src.SmartSchool.WebAPI.Controllers.ProfessorController._mapper">
+            <summary>
+            Propriedade responsável por injetar mapeamento.
+            </summary>
+        </member>
+        <member name="M:src.SmartSchool.WebAPI.Controllers.ProfessorController.#ctor(src.SmartSchool.WebAPI.Data.IRepository,AutoMapper.IMapper)">
+            <summary>
+            Construtor responsável por atribuir injecção de dependência do Repositório e Mapeamento. 
+            </summary>
+            <param name="repo">Parâmetro de definição do repositório.</param>
+            <param name="mapper">Parâmetro de definição do mapeamento.</param>
+        </member>
+        <member name="M:src.SmartSchool.WebAPI.Controllers.ProfessorController.Get">
+            <summary>
+            Método responsável por obter registros de todos os professores.
+            </summary>
+            <returns>Registros de todos os professores.</returns>
+        </member>
+        <member name="M:src.SmartSchool.WebAPI.Controllers.ProfessorController.GetById(System.Int32)">
+            <summary>
+            Método responsável por obter registro de professor(a) por Id.
+            </summary>
+            <param name="id">Parâmetro de pesquisa do professor(a).</param>
+            <returns>Registro de um professor(a) por Id.</returns>
+        </member>
+        <member name="M:src.SmartSchool.WebAPI.Controllers.ProfessorController.Post(src.SmartSchool.WebAPI.Dtos.ProfessorRegistrarDto)">
+            <summary>
+            Método responsável por adicionar registro de professor(a).
+            </summary>
+            <param name="model">Instância da classe ProfessorRegistrarDto.</param>
+            <returns>Novo registro do professor(a).</returns>
+        </member>
+        <member name="M:src.SmartSchool.WebAPI.Controllers.ProfessorController.Put(System.Int32,src.SmartSchool.WebAPI.Dtos.ProfessorRegistrarDto)">
+            <summary>
+            Método responsável por atualizar todo o registro do professor(a).
+            </summary>
+            <param name="id">Parâmetro de pesquisa do professor(a).</param>
+            <param name="model">Instância da classe ProfessorRegistrarDto.</param>
+            <returns>Registro atualizado do professor(a).</returns>
+        </member>
+        <member name="M:src.SmartSchool.WebAPI.Controllers.ProfessorController.Patch(System.Int32,src.SmartSchool.WebAPI.Dtos.ProfessorRegistrarDto)">
+            <summary>
+            Método responsável por atualizar parcialmente o registro do professor(a).
+            </summary>
+            <param name="id">Parâmetro de pesquisa do professor(a).</param>
+            <param name="model">Instância da classe ProfessorRegistrarDto.</param>
+            <returns>Registro parcialmente atualizado do professor(a).</returns>
+        </member>
+        <member name="M:src.SmartSchool.WebAPI.Controllers.ProfessorController.Delete(System.Int32)">
+            <summary>
+            Método responsável por excluir registro de professor(a).
+            </summary>
+            <param name="id">Parâmetro de pesquisa do professor(a).</param>
+            <returns>Confirmação da exclusão do registro de professor(a).</returns>
+        </member>
+        <member name="T:src.SmartSchool.WebAPI.Dtos.AlunoDto">
+            <summary>
+            Classe responsável pela difinição da entidade Aluno como Objeto de Transferência de Dados.
+            </summary>
+        </member>
+        <member name="P:src.SmartSchool.WebAPI.Dtos.AlunoDto.Id">
+            <summary>
+            Identificação de chave no banco de dados.
+            </summary>
+        </member>
+        <member name="P:src.SmartSchool.WebAPI.Dtos.AlunoDto.Matricula">
+            <summary>
+            Identificação de aluno(a) para negócios na instituição.
+            </summary>
+        </member>
+        <member name="P:src.SmartSchool.WebAPI.Dtos.AlunoDto.Nome">
+            <summary>
+            Define o Nome e Sobrenome do aluno(a).
+            </summary>
+        </member>
+        <member name="P:src.SmartSchool.WebAPI.Dtos.AlunoDto.Telefone">
+            <summary>
+            Define o Telefone de contato do aluno(a).
+            </summary>
+        </member>
+        <member name="P:src.SmartSchool.WebAPI.Dtos.AlunoDto.Idade">
+            <summary>
+            Define a idade do aluno(a) através de cálculo relacionado a sua data de nascimento.
+            </summary>
+        </member>
+        <member name="P:src.SmartSchool.WebAPI.Dtos.AlunoDto.DataIni">
+            <summary>
+            Aplica data de início de curso realizada pelo aluno(a).
+            </summary>
+        </member>
+        <member name="P:src.SmartSchool.WebAPI.Dtos.AlunoDto.Ativo">
+            <summary>
+            Verifica se aluno(a) está ativo ou não.
+            </summary>
+        </member>
+        <member name="T:src.SmartSchool.WebAPI.Dtos.AlunoRegistrarDto">
+            <summary>
+            Classe responsável pela difinição de propriedade de registros da entidade Aluno.
+            </summary>
+        </member>
+        <member name="P:src.SmartSchool.WebAPI.Dtos.AlunoRegistrarDto.Id">
+            <summary>
+            Identificação de chave no banco de dados.
+            </summary>
+        </member>
+        <member name="P:src.SmartSchool.WebAPI.Dtos.AlunoRegistrarDto.Matricula">
+            <summary>
+            Identificação de aluno(a) para negócios na instituição.
+            </summary>
+        </member>
+        <member name="P:src.SmartSchool.WebAPI.Dtos.AlunoRegistrarDto.Nome">
+            <summary>
+            Define o Nome do aluno(a).
+            </summary>
+        </member>
+        <member name="P:src.SmartSchool.WebAPI.Dtos.AlunoRegistrarDto.Sobrenome">
+            <summary>
+            Define o Sobrenome do aluno(a).
+            </summary>
+        </member>
+        <member name="P:src.SmartSchool.WebAPI.Dtos.AlunoRegistrarDto.Telefone">
+            <summary>
+            Define o Telefone de contato do aluno(a).
+            </summary>
+        </member>
+        <member name="P:src.SmartSchool.WebAPI.Dtos.AlunoRegistrarDto.DataNasc">
+            <summary>
+            Define a Data de Nascimento do aluno(a)
+            </summary>
+        </member>
+        <member name="P:src.SmartSchool.WebAPI.Dtos.AlunoRegistrarDto.DataIni">
+            <summary>
+            Define a Data de Início de curso.
+            </summary>
+        </member>
+        <member name="P:src.SmartSchool.WebAPI.Dtos.AlunoRegistrarDto.DataFim">
+            <summary>
+            Define a Data de Fim de curso.
+            </summary>
+        </member>
+        <member name="P:src.SmartSchool.WebAPI.Dtos.AlunoRegistrarDto.Ativo">
+            <summary>
+            Verifica se aluno(a) está ativo ou não.
+            </summary>
+        </member>
+        <member name="T:src.SmartSchool.WebAPI.Dtos.ProfessorDto">
+            <summary>
+            Classe responsável pela difinição da entidade Professor como Objeto de Transferência de Dados.
+            </summary>
+        </member>
+        <member name="P:src.SmartSchool.WebAPI.Dtos.ProfessorDto.Id">
+            <summary>
+            Identificação de chave no banco de dados.
+            </summary>
+        </member>
+        <member name="P:src.SmartSchool.WebAPI.Dtos.ProfessorDto.Registro">
+            <summary>
+            Define o registro do professor(a).
+            </summary>
+        </member>
+        <member name="P:src.SmartSchool.WebAPI.Dtos.ProfessorDto.Nome">
+            <summary>
+            Define o Nome e Sobrenome do professor(a).
+            </summary>
+        </member>
+        <member name="P:src.SmartSchool.WebAPI.Dtos.ProfessorDto.Telefone">
+            <summary>
+            Define o Telefone de contato do professor(a).
+            </summary>
+        </member>
+        <member name="P:src.SmartSchool.WebAPI.Dtos.ProfessorDto.Ativo">
+            <summary>
+            Verifica se professor(a) está ativo ou não.
+            </summary>
+        </member>
+        <member name="T:src.SmartSchool.WebAPI.Dtos.ProfessorRegistrarDto">
+            <summary>
+            Classe responsável pela difinição de propriedade de registros da entidade Professor.
+            </summary>
+        </member>
+        <member name="P:src.SmartSchool.WebAPI.Dtos.ProfessorRegistrarDto.Id">
+            <summary>
+            Identificação de chave no banco de dados.
+            </summary>
+        </member>
+        <member name="P:src.SmartSchool.WebAPI.Dtos.ProfessorRegistrarDto.Registro">
+            <summary>
+            Define o registro do professor(a).
+            </summary>
+        </member>
+        <member name="P:src.SmartSchool.WebAPI.Dtos.ProfessorRegistrarDto.Nome">
+            <summary>
+            Define o Nome do professor(a).
+            </summary>
+        </member>
+        <member name="P:src.SmartSchool.WebAPI.Dtos.ProfessorRegistrarDto.Sobrenome">
+            <summary>
+            Define o Sobrenome do professor(a).
+            </summary>
+        </member>
+        <member name="P:src.SmartSchool.WebAPI.Dtos.ProfessorRegistrarDto.Telefone">
+            <summary>
+            Define o Telefone do professor(a).
+            </summary>
+        </member>
+        <member name="P:src.SmartSchool.WebAPI.Dtos.ProfessorRegistrarDto.DataIni">
+            <summary>
+            Define a Data de Início de curso.
+            </summary>
+        </member>
+        <member name="P:src.SmartSchool.WebAPI.Dtos.ProfessorRegistrarDto.DataFim">
+            <summary>
+            Define a Data de Fim de curso.
+            </summary>
+        </member>
+        <member name="P:src.SmartSchool.WebAPI.Dtos.ProfessorRegistrarDto.Ativo">
+            <summary>
+            Verifica se aluno(a) está ativo ou não.
+            </summary>
+        </member>
+    </members>
+</doc>

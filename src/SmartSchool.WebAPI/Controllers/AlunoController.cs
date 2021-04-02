@@ -7,19 +7,38 @@ using src.SmartSchool.WebAPI.Models;
 
 namespace src.SmartSchool.WebAPI.Controllers
 {
+    /// <summary>
+    /// Controlador responsável por funcionalidades relacionadas a entidade Aluno.
+    /// </summary>
     [ApiController]
     [Route("api/[controller]")]
     public class AlunoController : ControllerBase
     {
+        /// <summary>
+        /// Propriedade responsável por injetar repositório.
+        /// </summary>
         public readonly IRepository _repo;
+
+        /// <summary>
+        /// Propriedade responsável por injetar mapeamento.
+        /// </summary>
         public readonly IMapper _mapper;
 
+        /// <summary>
+        /// Construtor responsável por atribuir injecção de dependência do Repositório e Mapeamento. 
+        /// </summary>
+        /// <param name="repo">Parâmetro de definição do repositório.</param>
+        /// <param name="mapper">Parâmetro de definição do mapeamento.</param>
         public AlunoController(IRepository repo, IMapper mapper)
         {
             _mapper = mapper;
             _repo = repo;
         }
 
+        /// <summary>
+        /// Método responsável por obter registros de todos os alunos.
+        /// </summary>
+        /// <returns>Registros de todos os alunos</returns>
         [HttpGet]
         public IActionResult Get()
         {
@@ -28,6 +47,11 @@ namespace src.SmartSchool.WebAPI.Controllers
             return Ok(_mapper.Map<IEnumerable<AlunoDto>>(alunos));
         }
 
+        /// <summary>
+        /// Método responsável por obter registro de aluno(a) por Id.
+        /// </summary>
+        /// <param name="id">Parâmetro de pesquisa do aluno(a).</param>
+        /// <returns>Registro de um aluno(a) por Id.</returns>
         [HttpGet("{id}")]
         public IActionResult GetById(int id)
         {
@@ -40,6 +64,11 @@ namespace src.SmartSchool.WebAPI.Controllers
             return Ok(aluno);
         }
 
+        /// <summary>
+        /// Método responsável por adicionar registro de aluno(a).
+        /// </summary>
+        /// <param name="model">Instância da classe AlunoRegistrarDto.</param>
+        /// <returns>Novo registro do aluno(a).</returns>
         [HttpPost]
         public IActionResult Post(AlunoRegistrarDto model)
         {
@@ -55,6 +84,12 @@ namespace src.SmartSchool.WebAPI.Controllers
             return BadRequest("Aluno(a) não Cadastrado!");
         }
 
+        /// <summary>
+        /// Método responsável por atualizar todo o registro do aluno(a).
+        /// </summary>
+        /// <param name="id">Parâmetro de pesquisa do aluno(a).</param>
+        /// <param name="model">Instância da classe AlunoRegistrarDto.</param>
+        /// <returns>Registro atualizado do aluno(a).</returns>
         [HttpPut("{id}")]
         public IActionResult Put(int id, AlunoRegistrarDto model)
         {
@@ -73,6 +108,12 @@ namespace src.SmartSchool.WebAPI.Controllers
             return BadRequest("Aluno(a) não Atualizado!");
         }
 
+        /// <summary>
+        /// Método responsável por atualizar parcialmente o registro do aluno(a).
+        /// </summary>
+        /// <param name="id">Parâmetro de pesquisa do aluno(a).</param>
+        /// <param name="model">Instância da classe AlunoRegistrarDto.</param>
+        /// <returns>Registro parcialmente atualizado do aluno(a).</returns>
         [HttpPatch("{id}")]
         public IActionResult Patch(int id, AlunoRegistrarDto model)
         {
@@ -91,6 +132,11 @@ namespace src.SmartSchool.WebAPI.Controllers
             return BadRequest("Aluno(a) não Atualizado!");
         }
 
+        /// <summary>
+        /// Método responsável por excluir registro de aluno(a).
+        /// </summary>
+        /// <param name="id">Parâmetro de pesquisa do aluno(a).</param>
+        /// <returns>Confirmação da exclusão do registro de aluno(a).</returns>
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
