@@ -1,7 +1,7 @@
-namespace src.SmartSchool.WebAPI.Dtos
+namespace src.SmartSchool.WebAPI.V1.Dtos
 {
     /// <summary>
-    /// Classe responsável pela difinição da entidade Professor como Objeto de Transferência de Dados.
+    /// Versão 1: classe responsável pela difinição da entidade Professor como Objeto de Transferência de Dados.
     /// </summary>
     public class ProfessorDto
     {

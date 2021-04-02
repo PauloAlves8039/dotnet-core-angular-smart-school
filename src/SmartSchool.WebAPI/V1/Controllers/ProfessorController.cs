@@ -2,16 +2,17 @@ using System.Collections.Generic;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using src.SmartSchool.WebAPI.Data;
-using src.SmartSchool.WebAPI.Dtos;
+using src.SmartSchool.WebAPI.V1.Dtos;
 using src.SmartSchool.WebAPI.Models;
 
-namespace src.SmartSchool.WebAPI.Controllers
+namespace src.SmartSchool.WebAPI.V1.Controllers
 {
     /// <summary>
-    /// Controlador responsável por funcionalidades relacionadas a entidade Professor.
+    /// Versão 1: controlador responsável por funcionalidades relacionadas a entidade Professor.
     /// </summary>
     [ApiController]
-    [Route("api/[controller]")]
+    [ApiVersion("1.0")]
+    [Route("api/v{version:apiVersion}/[controller]")]
     public class ProfessorController : ControllerBase
     {
         /// <summary>

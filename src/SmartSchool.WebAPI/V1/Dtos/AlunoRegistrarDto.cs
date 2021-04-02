@@ -1,11 +1,11 @@
 using System;
 
-namespace src.SmartSchool.WebAPI.Dtos
+namespace src.SmartSchool.WebAPI.V1.Dtos
 {
     /// <summary>
-    /// Classe responsável pela difinição de propriedade de registros da entidade Professor.
+    ///Versão 1: classe responsável pela difinição de propriedade de registros da entidade Aluno.
     /// </summary>
-    public class ProfessorRegistrarDto
+    public class AlunoRegistrarDto
     {
         /// <summary>
         /// Identificação de chave no banco de dados.
@@ -13,24 +13,29 @@ namespace src.SmartSchool.WebAPI.Dtos
         public int Id { get; set; }
 
         /// <summary>
-        /// Define o registro do professor(a).
+        /// Identificação de aluno(a) para negócios na instituição.
         /// </summary>
-        public int Registro { get; set; }
+        public int Matricula { get; set; }
 
         /// <summary>
-        /// Define o Nome do professor(a).
+        /// Define o Nome do aluno(a).
         /// </summary>
         public string Nome { get; set; }
 
         /// <summary>
-        /// Define o Sobrenome do professor(a).
+        /// Define o Sobrenome do aluno(a).
         /// </summary>
         public string Sobrenome { get; set; }
 
         /// <summary>
-        /// Define o Telefone do professor(a).
+        /// Define o Telefone de contato do aluno(a).
         /// </summary>
         public string Telefone { get; set; }
+
+        /// <summary>
+        /// Define a Data de Nascimento do aluno(a)
+        /// </summary>
+        public DateTime DataNasc { get; set; }
 
         /// <summary>
         /// Define a Data de Início de curso.

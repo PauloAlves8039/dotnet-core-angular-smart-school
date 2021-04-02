@@ -1,11 +1,11 @@
 using System;
 
-namespace src.SmartSchool.WebAPI.Dtos
+namespace src.SmartSchool.WebAPI.V1.Dtos
 {
     /// <summary>
-    /// Classe responsável pela difinição de propriedade de registros da entidade Aluno.
+    /// Versão 1: classe responsável pela difinição da entidade Aluno como Objeto de Transferência de Dados.
     /// </summary>
-    public class AlunoRegistrarDto
+    public class AlunoDto
     {
         /// <summary>
         /// Identificação de chave no banco de dados.
@@ -18,14 +18,9 @@ namespace src.SmartSchool.WebAPI.Dtos
         public int Matricula { get; set; }
 
         /// <summary>
-        /// Define o Nome do aluno(a).
+        /// Define o Nome e Sobrenome do aluno(a).
         /// </summary>
         public string Nome { get; set; }
-
-        /// <summary>
-        /// Define o Sobrenome do aluno(a).
-        /// </summary>
-        public string Sobrenome { get; set; }
 
         /// <summary>
         /// Define o Telefone de contato do aluno(a).
@@ -33,23 +28,18 @@ namespace src.SmartSchool.WebAPI.Dtos
         public string Telefone { get; set; }
 
         /// <summary>
-        /// Define a Data de Nascimento do aluno(a)
+        /// Define a idade do aluno(a) através de cálculo relacionado a sua data de nascimento.
         /// </summary>
-        public DateTime DataNasc { get; set; }
+        public int Idade { get; set; }
 
         /// <summary>
-        /// Define a Data de Início de curso.
+        /// Aplica data de início de curso realizada pelo aluno(a).
         /// </summary>
-        public DateTime DataIni { get; set; } = DateTime.Now;
-
-        /// <summary>
-        /// Define a Data de Fim de curso.
-        /// </summary>
-        public DateTime? DataFim { get; set; } = null;
+        public DateTime DataIni { get; set; }
 
         /// <summary>
         /// Verifica se aluno(a) está ativo ou não.
         /// </summary>
-        public bool Ativo { get; set; } = true;
+        public bool Ativo { get; set; }
     }
 }

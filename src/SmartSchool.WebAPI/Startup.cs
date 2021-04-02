@@ -4,6 +4,8 @@ using System.Reflection;
 using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -34,14 +36,30 @@ namespace SmartSchool.WebAPI
 
             services.AddScoped<IRepository, Repository>();
 
+            services.AddVersionedApiExplorer(options =>
+            {
+                options.GroupNameFormat = "'v'VVV";
+                options.SubstituteApiVersionInUrl = true;
+            })
+            .AddApiVersioning(options =>
+            {
+                options.DefaultApiVersion = new ApiVersion(1, 0);
+                options.AssumeDefaultVersionWhenUnspecified = true;
+                options.ReportApiVersions = true;
+            });
+
+            var apiProviderDescription = services.BuildServiceProvider().GetService<IApiVersionDescriptionProvider>();
+
             services.AddSwaggerGen(options =>
             {
-                options.SwaggerDoc(
-                    "smartschoolapi",
+                foreach (var description in apiProviderDescription.ApiVersionDescriptions)
+                {
+                    options.SwaggerDoc(
+                    description.GroupName,
                     new Microsoft.OpenApi.Models.OpenApiInfo()
                     {
                         Title = "SmartSchool API",
-                        Version = "1.0",
+                        Version = description.ApiVersion.ToString(),
                         TermsOfService = new Uri("https://www.udemy.com/course/criando-web-api-com-aspnet-core-31-ef-core-31/"),
                         Description = "Criando uma WebAPI RESTful utilizando Asp.NET Core 3.1, Entity Framework Core 3.1, Docker, Angular 10, MySQL e Mais!",
                         License = new Microsoft.OpenApi.Models.OpenApiLicense
@@ -56,6 +74,7 @@ namespace SmartSchool.WebAPI
                             Url = new Uri("https://github.com/PauloAlves8039")
                         }
                     });
+                }
 
                 var xmlCommentsFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
                 var xmlCommentsFullPath = Path.Combine(AppContext.BaseDirectory, xmlCommentsFile);
@@ -64,7 +83,7 @@ namespace SmartSchool.WebAPI
             });
         }
 
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IApiVersionDescriptionProvider apiProviderDescription)
         {
             if (env.IsDevelopment())
             {
@@ -78,7 +97,14 @@ namespace SmartSchool.WebAPI
             app.UseSwagger()
                 .UseSwaggerUI(options =>
                 {
-                    options.SwaggerEndpoint("/swagger/smartschoolapi/swagger.json", "smartschoolapi");
+                    foreach (var description in apiProviderDescription.ApiVersionDescriptions)
+                    {
+                        options.SwaggerEndpoint(
+                            $"/swagger/{description.GroupName}/swagger.json",
+                            description.GroupName.ToUpperInvariant()
+                        );
+                    }
+
                     options.RoutePrefix = "";
                 });
 
