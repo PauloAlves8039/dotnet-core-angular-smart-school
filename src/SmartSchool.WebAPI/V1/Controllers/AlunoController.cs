@@ -4,6 +4,8 @@ using Microsoft.AspNetCore.Mvc;
 using src.SmartSchool.WebAPI.Data;
 using src.SmartSchool.WebAPI.V1.Dtos;
 using src.SmartSchool.WebAPI.Models;
+using System.Threading.Tasks;
+using src.SmartSchool.WebAPI.Helpers;
 
 namespace src.SmartSchool.WebAPI.V1.Controllers
 {
@@ -41,11 +43,15 @@ namespace src.SmartSchool.WebAPI.V1.Controllers
         /// </summary>
         /// <returns>Registros de todos os alunos</returns>
         [HttpGet]
-        public IActionResult Get()
+        public async Task<IActionResult> Get([FromQuery] PageParams pageParams)
         {
-            var alunos = _repo.GetAllAlunos(true);
+            var alunos = await _repo.GetAllAlunosAsync(pageParams, true);
 
-            return Ok(_mapper.Map<IEnumerable<AlunoDto>>(alunos));
+            var alunosResult = _mapper.Map<IEnumerable<AlunoDto>>(alunos);
+
+            Response.AddPagination(alunos.CurrentPage, alunos.PageSize, alunos.TotalCount, alunos.TotalPages);
+
+            return Ok(alunosResult);
         }
 
         /// <summary>

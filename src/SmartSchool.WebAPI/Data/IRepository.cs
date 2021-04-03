@@ -1,3 +1,5 @@
+using System.Threading.Tasks;
+using src.SmartSchool.WebAPI.Helpers;
 using src.SmartSchool.WebAPI.Models;
 
 namespace src.SmartSchool.WebAPI.Data
@@ -12,6 +14,7 @@ namespace src.SmartSchool.WebAPI.Data
         #endregion
 
         #region Aluno
+        Task<PageList<Aluno>> GetAllAlunosAsync(PageParams pageParams, bool includeProfessor = false);
         Aluno[] GetAllAlunos(bool includeProfessor = false);
         Aluno[] GetAllAlunosByDisciplinaId(int disciplinaId, bool includeProfessor = false);
         Aluno GetAlunoById(int alunoId, bool includeProfessor = false);
