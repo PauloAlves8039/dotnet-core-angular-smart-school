@@ -25,7 +25,7 @@ namespace SmartSchool.WebAPI
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<SmartContext>(context => context.UseSqlite(Configuration.GetConnectionString("default")));
+            services.AddDbContext<SmartContext>(context => context.UseMySql(Configuration.GetConnectionString("MySqlConnection")));
 
             services.AddControllers()
                     .AddNewtonsoftJson(
