@@ -12,6 +12,8 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { TituloComponent } from './components/shared/titulo/titulo.component';
 import { NavComponent } from './components/shared/nav/nav.component';
 
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+
 import { ToastrModule } from 'ngx-toastr';
 import { NgxSpinnerModule } from 'ngx-spinner';
 
@@ -28,6 +30,7 @@ import { NgxSpinnerModule } from 'ngx-spinner';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    BsDropdownModule.forRoot(),
     BrowserAnimationsModule,
     NgxSpinnerModule,
     ToastrModule.forRoot({
