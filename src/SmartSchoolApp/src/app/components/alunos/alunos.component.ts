@@ -7,6 +7,12 @@ import { ToastrService } from 'ngx-toastr';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
+import { Aluno } from '../../models/Aluno';
+import { Professor } from '../../models/Professor';
+
+import { AlunoService } from '../../services/aluno.service';
+import { ProfessorService } from '../../services/professor.service';
+
 @Component({
   selector: 'app-alunos',
   templateUrl: './alunos.component.html',
@@ -19,39 +25,12 @@ export class AlunosComponent implements OnInit, OnDestroy {
   public alunoSelecionado: Aluno;
   public textSimple: string;
   public profsAlunos: Professor[];
-
-  private unsubscriber = new Subject();
-
   public alunos: Aluno[];
   public aluno: Aluno;
   public msnDeleteAluno: string;
   public modeSave = 'post';
 
-  openModal(template: TemplateRef<any>, alunoId: number): void {
-    this.professoresAlunos(template, alunoId);
-  }
-
-  closeModal(): void {
-    this.modalRef.hide();
-  }
-
-  professoresAlunos(template: TemplateRef<any>, id: number): void {
-    this.spinner.show();
-    this.professorService
-      .getByAlunoId(id)
-      .pipe(takeUntil(this.unsubscriber))
-      .subscribe(
-        (professores: Professor[]) => {
-          this.profsAlunos = professores;
-          this.modalRef = this.modalService.show(template);
-        },
-        (error: any) => {
-          this.toastr.error(`erro: ${error}`);
-          console.log(error);
-        },
-        () => this.spinner.hide()
-      );
-  }
+  private unsubscriber = new Subject();
 
   constructor(
     private alunoService: AlunoService,
@@ -69,9 +48,22 @@ export class AlunosComponent implements OnInit, OnDestroy {
     this.carregarAlunos();
   }
 
-  ngOnDestroy(): void {
-    this.unsubscriber.next();
-    this.unsubscriber.complete();
+  professoresAlunos(template: TemplateRef<any>, id: number): void {
+    this.spinner.show();
+    this.professorService
+      .getByAlunoId(id)
+      .pipe(takeUntil(this.unsubscriber))
+      .subscribe(
+        (professores: Professor[]) => {
+          this.profsAlunos = professores;
+          this.modalRef = this.modalService.show(template);
+        },
+        (error: any) => {
+          this.toastr.error(`erro: ${error}`);
+          console.error(error);
+        },
+        () => this.spinner.hide()
+      );
   }
 
   criarForm(): void {
@@ -142,5 +134,18 @@ export class AlunosComponent implements OnInit, OnDestroy {
 
   voltar(): void {
     this.alunoSelecionado = null;
+  }
+
+  openModal(template: TemplateRef<any>, alunoId: number): void {
+    this.professoresAlunos(template, alunoId);
+  }
+
+  closeModal(): void {
+    this.modalRef.hide();
+  }
+
+  ngOnDestroy(): void {
+    this.unsubscriber.next();
+    this.unsubscriber.complete();
   }
 }
