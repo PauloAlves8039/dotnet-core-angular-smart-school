@@ -18,12 +18,14 @@ import { TituloComponent } from './components/shared/titulo/titulo.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AlunoService } from './services/aluno.service';
 import { ProfessorService } from './services/professor.service';
+import { ProfessoresAlunosComponent } from './components/alunos/professores-alunos/professores-alunos.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AlunosComponent,
     ProfessoresComponent,
+    ProfessoresAlunosComponent,
     PerfilComponent,
     DashboardComponent,
     NavComponent,

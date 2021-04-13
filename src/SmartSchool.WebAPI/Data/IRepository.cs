@@ -23,7 +23,8 @@ namespace src.SmartSchool.WebAPI.Data
         #region Professor
         Professor[] GetAllProfessores(bool includeAlunos = false);
         Professor[] GetAllProfessoresByDisciplinaId(int disciplinaId, bool includeAlunos = false);
-        Professor GetProfessorById(int professorId, bool includeProfessor = false);
+        Professor GetProfessorById(int professorId, bool includeAlunos = false);
+        Professor[] GetProfessoresByAlunoId(int alunoId, bool includeAlunos = false);
         #endregion        
     }
 }

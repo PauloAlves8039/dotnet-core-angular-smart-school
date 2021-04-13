@@ -104,6 +104,13 @@
             <param name="id">Parâmetro de pesquisa do professor(a).</param>
             <returns>Registro de um professor(a) por Id.</returns>
         </member>
+        <member name="M:src.SmartSchool.WebAPI.V1.Controllers.ProfessorController.GetByAlunoId(System.Int32)">
+            <summary>
+            Método responsável por obter registro de aluno(a) agregado ao professor(a) por Id.
+            </summary>
+            <param name="alunoId">Parâmetro de pesquisa do aluno(a).</param>
+            <returns>Registro de um professor(a) agregado ao aluno(a) por Id.</returns>
+        </member>
         <member name="M:src.SmartSchool.WebAPI.V1.Controllers.ProfessorController.Post(src.SmartSchool.WebAPI.V1.Dtos.ProfessorRegistrarDto)">
             <summary>
             Método responsável por adicionar registro de professor(a).
