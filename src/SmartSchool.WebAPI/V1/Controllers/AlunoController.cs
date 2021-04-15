@@ -66,7 +66,7 @@ namespace src.SmartSchool.WebAPI.V1.Controllers
 
             if (aluno == null) return BadRequest("O Aluno(a) não foi encontrado!");
 
-            var alunoDto = _mapper.Map<AlunoDto>(aluno);
+            var alunoDto = _mapper.Map<AlunoRegistrarDto>(aluno);
 
             return Ok(aluno);
         }

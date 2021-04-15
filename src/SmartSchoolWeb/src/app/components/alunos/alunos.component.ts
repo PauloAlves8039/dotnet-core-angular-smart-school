@@ -103,7 +103,7 @@ export class AlunosComponent implements OnInit, OnDestroy {
   }
 
   carregarAlunos() {
-    const id = +this.route.snapshot.paramMap.get('id');
+    const alunoId = +this.route.snapshot.paramMap.get('id');
 
     this.spinner.show();
     this.alunoService
@@ -113,8 +113,8 @@ export class AlunosComponent implements OnInit, OnDestroy {
         (alunos: Aluno[]) => {
           this.alunos = alunos;
 
-          if (id > 0) {
-            this.alunoSelect(this.alunos.find((aluno) => aluno.id === id));
+          if (alunoId > 0) {
+            this.alunoSelect(alunoId);
           }
 
           this.toastr.success('Alunos foram carregado com Sucesso!');
@@ -128,10 +128,21 @@ export class AlunosComponent implements OnInit, OnDestroy {
       );
   }
 
-  alunoSelect(aluno: Aluno) {
+  alunoSelect(alunoId: number) {
     this.modeSave = 'put';
-    this.alunoSelecionado = aluno;
-    this.alunoForm.patchValue(aluno);
+    this.alunoService.getById(alunoId).subscribe(
+      (alunoReturn) => {
+        this.alunoSelecionado = alunoReturn;
+        this.toastr.success('Alunos carregado!');
+        this.alunoForm.patchValue(this.alunoSelecionado);
+      },
+      (error) => {
+        this.toastr.error('Alunos não carregados!');
+        console.error(error);
+        this.spinner.hide();
+      },
+      () => this.spinner.hide()
+    );
   }
 
   ngOnDestroy(): void {
