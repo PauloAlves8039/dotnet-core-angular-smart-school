@@ -54,6 +54,14 @@
             <param name="model">Instância da classe AlunoRegistrarDto.</param>
             <returns>Registro atualizado do aluno(a).</returns>
         </member>
+        <member name="M:src.SmartSchool.WebAPI.V1.Controllers.AlunoController.Patch(System.Int32,src.SmartSchool.WebAPI.V1.Dtos.AlunoPatchDto)">
+            <summary>
+            Método responsável por atualizar parcialmente o registro do aluno(a).
+            </summary>
+            <param name="id">Parâmetro de pesquisa do aluno(a).</param>
+            <param name="model">Instância da classe AlunoPatchDto.</param>
+            <returns>Registro atualizado do aluno(a).</returns>
+        </member>
         <member name="M:src.SmartSchool.WebAPI.V1.Controllers.AlunoController.Patch(System.Int32,src.SmartSchool.WebAPI.V1.Dtos.AlunoRegistrarDto)">
             <summary>
             Método responsável por atualizar parcialmente o registro do aluno(a).
@@ -180,6 +188,11 @@
             <summary>
             Verifica se aluno(a) está ativo ou não.
             </summary>
+        </member>
+        <member name="T:src.SmartSchool.WebAPI.V1.Dtos.AlunoPatchDto">
+             <summary>
+            Versão 1: classe responsável pela difinição de propriedade de registros da entidade Aluno.
+             </summary>
         </member>
         <member name="T:src.SmartSchool.WebAPI.V1.Dtos.AlunoRegistrarDto">
              <summary>

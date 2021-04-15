@@ -129,7 +129,7 @@ export class AlunosComponent implements OnInit, OnDestroy {
   }
 
   alunoSelect(alunoId: number) {
-    this.modeSave = 'put';
+    this.modeSave = 'patch';
     this.alunoService.getById(alunoId).subscribe(
       (alunoReturn) => {
         this.alunoSelecionado = alunoReturn;
