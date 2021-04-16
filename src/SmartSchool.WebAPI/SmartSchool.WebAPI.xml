@@ -62,6 +62,14 @@
             <param name="model">Instância da classe AlunoPatchDto.</param>
             <returns>Registro atualizado do aluno(a).</returns>
         </member>
+        <member name="M:src.SmartSchool.WebAPI.V1.Controllers.AlunoController.TrocarEstado(System.Int32,src.SmartSchool.WebAPI.V1.Dtos.TrocaEstadoDto)">
+            <summary>
+            Método responsável por atualizar a troca de estado do aluno(a).
+            </summary>
+            <param name="id">Parâmetro de pesquisa do aluno(a).</param>
+            <param name="trocaEstado">Instância da classe TrocaEstadoDto.</param>
+            <returns>Registro da troca de estado atualizada do aluno(a).</returns>
+        </member>
         <member name="M:src.SmartSchool.WebAPI.V1.Controllers.AlunoController.Patch(System.Int32,src.SmartSchool.WebAPI.V1.Dtos.AlunoRegistrarDto)">
             <summary>
             Método responsável por atualizar parcialmente o registro do aluno(a).

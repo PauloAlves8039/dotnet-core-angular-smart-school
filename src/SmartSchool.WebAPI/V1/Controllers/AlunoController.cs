@@ -140,6 +140,32 @@ namespace src.SmartSchool.WebAPI.V1.Controllers
         }
 
         /// <summary>
+        /// Método responsável por atualizar a troca de estado do aluno(a).
+        /// </summary>
+        /// <param name="id">Parâmetro de pesquisa do aluno(a).</param>
+        /// <param name="trocaEstado">Instância da classe TrocaEstadoDto.</param>
+        /// <returns>Registro da troca de estado atualizada do aluno(a).</returns>
+        [HttpPatch("{id}/trocarEstado")]
+        public IActionResult TrocarEstado(int id, TrocaEstadoDto trocaEstado)
+        {
+            var aluno = _repo.GetAlunoById(id);
+
+            if (aluno == null) return BadRequest("Aluno não encontrado!");
+
+            aluno.Ativo = trocaEstado.Estado;
+
+            _repo.Update(aluno);
+
+            if (_repo.SaveChanges())
+            {
+                var msn = aluno.Ativo ? "ativado" : "desativado";
+                return Ok(new { message = $"Aluno {msn} com sucesso!" });
+            }
+
+            return BadRequest("Aluno(a) não Atualizado!");
+        }
+
+        /// <summary>
         /// Método responsável por atualizar parcialmente o registro do aluno(a).
         /// </summary>
         /// <param name="id">Parâmetro de pesquisa do aluno(a).</param>

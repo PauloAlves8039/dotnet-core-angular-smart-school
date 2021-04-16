@@ -30,6 +30,12 @@ export class AlunoService {
     return this.http.put(`${this.baseURL}/${aluno.id}`, aluno);
   }
 
+  trocarEstado(alunoId: number, ativo: boolean) {
+    return this.http.patch(`${this.baseURL}/${alunoId}/trocarEstado`, {
+      estado: ativo,
+    });
+  }
+
   patch(aluno: Aluno) {
     return this.http.patch(`${this.baseURL}/${aluno.id}`, aluno);
   }
