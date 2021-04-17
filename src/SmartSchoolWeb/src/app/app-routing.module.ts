@@ -1,3 +1,4 @@
+import { ProfessorDetalheComponent } from './components/professores/professor-detalhe/professor-detalhe.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AlunosComponent } from './components/alunos/alunos.component';
@@ -7,8 +8,10 @@ import { ProfessoresComponent } from './components/professores/professores.compo
 
 const routes: Routes = [
   { path: 'alunos', component: AlunosComponent },
-  { path: 'professores', component: ProfessoresComponent },
+  { path: 'alunos/:id', component: AlunosComponent },
   { path: 'perfil', component: PerfilComponent },
+  { path: 'professores', component: ProfessoresComponent },
+  { path: 'professor/:id', component: ProfessorDetalheComponent },
   { path: 'dashboard', component: DashboardComponent },
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
   { path: '**', redirectTo: 'dashboard', pathMatch: 'full' },

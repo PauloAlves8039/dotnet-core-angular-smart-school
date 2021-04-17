@@ -19,13 +19,17 @@ import { HttpClientModule } from '@angular/common/http';
 import { AlunoService } from './services/aluno.service';
 import { ProfessorService } from './services/professor.service';
 import { ProfessoresAlunosComponent } from './components/alunos/professores-alunos/professores-alunos.component';
+import { AlunosProfessoresComponent } from './components/professores/alunos-professores/alunos-professores.component';
+import { ProfessorDetalheComponent } from './components/professores/professor-detalhe/professor-detalhe.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AlunosComponent,
+    AlunosProfessoresComponent,
     ProfessoresComponent,
     ProfessoresAlunosComponent,
+    ProfessorDetalheComponent,
     PerfilComponent,
     DashboardComponent,
     NavComponent,
