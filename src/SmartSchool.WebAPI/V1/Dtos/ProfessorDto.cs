@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace src.SmartSchool.WebAPI.V1.Dtos
 {
     /// <summary>
@@ -29,5 +31,7 @@ namespace src.SmartSchool.WebAPI.V1.Dtos
         /// Verifica se professor(a) está ativo ou não.
         /// </summary>
         public bool Ativo { get; set; } = true;
+
+        public IEnumerable<DisciplinaDto> Disciplinas { get; set; }
     }
 }
