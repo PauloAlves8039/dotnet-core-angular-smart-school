@@ -20,7 +20,7 @@ Código fonte do projeto foi baseado no curso [Crie uma Web API com Asp.NET Core
 
 ## :camera: Screenshots
 
-![screenshot2](https://github.com/PauloAlves8039/dotnet-core-angular-smart-school/tree/master/src/SmartSchoolWeb/src/assets/img/screenshot.png)
+![screenshot](https://github.com/PauloAlves8039/dotnet-core-angular-smart-school/blob/master/src/SmartSchoolWeb/src/assets/img/screenshot.png)
 
 ## :floppy_disk: Clonar Repositório
 
