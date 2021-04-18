@@ -6,6 +6,7 @@ import { NgxSpinnerModule } from 'ngx-spinner';
 import { ToastrModule } from 'ngx-toastr';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { ModalModule } from 'ngx-bootstrap/modal';
+import { PaginationModule } from 'ngx-bootstrap/pagination';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -40,6 +41,7 @@ import { ProfessorDetalheComponent } from './components/professores/professor-de
     AppRoutingModule,
     BsDropdownModule.forRoot(),
     BrowserAnimationsModule,
+    PaginationModule.forRoot(),
     FormsModule,
     ReactiveFormsModule,
     ModalModule.forRoot(),

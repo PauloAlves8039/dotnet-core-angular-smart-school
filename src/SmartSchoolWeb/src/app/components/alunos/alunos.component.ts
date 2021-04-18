@@ -10,6 +10,7 @@ import { ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { takeUntil } from 'rxjs/operators';
+import { PaginatedResult, Pagination } from 'src/app/models/Pagination';
 
 @Component({
   selector: 'app-alunos',
@@ -23,6 +24,7 @@ export class AlunosComponent implements OnInit, OnDestroy {
   public alunoSelecionado: Aluno;
   public textSimple: string;
   public profsAlunos: Professor[];
+  pagination: Pagination;
 
   private unsubscriber = new Subject();
 
@@ -43,7 +45,8 @@ export class AlunosComponent implements OnInit, OnDestroy {
     this.criarForm();
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
+    this.pagination = { currentPage: 1, itemsPerPage: 5 } as Pagination;
     this.carregarAlunos();
   }
 
@@ -122,16 +125,17 @@ export class AlunosComponent implements OnInit, OnDestroy {
     }
   }
 
-  carregarAlunos() {
+  carregarAlunos(): void {
     const alunoId = +this.route.snapshot.paramMap.get('id');
 
     this.spinner.show();
     this.alunoService
-      .getAll()
+      .getAll(this.pagination.currentPage, this.pagination.itemsPerPage)
       .pipe(takeUntil(this.unsubscriber))
       .subscribe(
-        (alunos: Aluno[]) => {
-          this.alunos = alunos;
+        (alunos: PaginatedResult<Aluno[]>) => {
+          this.alunos = alunos.result;
+          this.pagination = alunos.pagination;
 
           if (alunoId > 0) {
             this.alunoSelect(alunoId);
@@ -146,6 +150,11 @@ export class AlunosComponent implements OnInit, OnDestroy {
         },
         () => this.spinner.hide()
       );
+  }
+
+  pageChanged(event: any): void {
+    this.pagination.currentPage = event.page;
+    this.carregarAlunos();
   }
 
   alunoSelect(alunoId: number) {
