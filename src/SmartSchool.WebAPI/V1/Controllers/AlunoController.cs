@@ -6,6 +6,7 @@ using src.SmartSchool.WebAPI.V1.Dtos;
 using src.SmartSchool.WebAPI.Models;
 using System.Threading.Tasks;
 using src.SmartSchool.WebAPI.Helpers;
+using System;
 
 namespace src.SmartSchool.WebAPI.V1.Controllers
 {
@@ -69,6 +70,25 @@ namespace src.SmartSchool.WebAPI.V1.Controllers
             var alunoDto = _mapper.Map<AlunoRegistrarDto>(aluno);
 
             return Ok(aluno);
+        }
+
+        /// <summary>
+        /// Método para obter disciplina do aluno(s) por Id.
+        /// </summary>
+        /// <param name="disciplinaId">Parâmetro de pesquisa da disciplina.</param>
+        /// <returns>Disciplina cadastrada do aluno(a)</returns>
+        [HttpGet("ByDisciplina/{disciplinaId}")]
+        public async Task<IActionResult> GetByDisciplinaId(int disciplinaId)
+        {
+            try
+            {
+                var result = await _repo.GetAlunosAsyncByDisciplinaId(disciplinaId, false);
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest($"Erro: {ex.Message}");
+            }
         }
 
         /// <summary>

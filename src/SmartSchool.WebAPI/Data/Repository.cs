@@ -82,22 +82,22 @@ namespace src.SmartSchool.WebAPI.Data
             return query.ToArray();
         }
 
-        public Aluno[] GetAllAlunosByDisciplinaId(int disciplinaId, bool includeProfessor = false)
+        public async Task<Aluno[]> GetAlunosAsyncByDisciplinaId(int disciplinaId, bool includeDisciplina)
         {
             IQueryable<Aluno> query = _context.Alunos;
 
-            if (includeProfessor)
+            if (includeDisciplina)
             {
-                query = query.Include(a => a.AlunosDisciplinas)
+                query = query.Include(p => p.AlunosDisciplinas)
                              .ThenInclude(ad => ad.Disciplina)
                              .ThenInclude(d => d.Professor);
             }
 
             query = query.AsNoTracking()
-                         .OrderBy(a => a.Id)
+                         .OrderBy(aluno => aluno.Id)
                          .Where(aluno => aluno.AlunosDisciplinas.Any(ad => ad.DisciplinaId == disciplinaId));
 
-            return query.ToArray();
+            return await query.ToArrayAsync();
         }
 
         public Aluno GetAlunoById(int alunoId, bool includeProfessor = false)

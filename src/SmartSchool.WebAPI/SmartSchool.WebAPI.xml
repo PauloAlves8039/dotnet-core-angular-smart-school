@@ -39,6 +39,13 @@
             <param name="id">Parâmetro de pesquisa do aluno(a).</param>
             <returns>Registro de um aluno(a) por Id.</returns>
         </member>
+        <member name="M:src.SmartSchool.WebAPI.V1.Controllers.AlunoController.GetByDisciplinaId(System.Int32)">
+            <summary>
+            Método para obter disciplina do aluno(s) por Id.
+            </summary>
+            <param name="disciplinaId">Parâmetro de pesquisa da disciplina.</param>
+            <returns>Disciplina cadastrada do aluno(a)</returns>
+        </member>
         <member name="M:src.SmartSchool.WebAPI.V1.Controllers.AlunoController.Post(src.SmartSchool.WebAPI.V1.Dtos.AlunoRegistrarDto)">
             <summary>
             Método responsável por adicionar registro de aluno(a).
