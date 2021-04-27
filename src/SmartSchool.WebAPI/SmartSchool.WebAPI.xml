@@ -77,14 +77,6 @@
             <param name="trocaEstado">Instância da classe TrocaEstadoDto.</param>
             <returns>Registro da troca de estado atualizada do aluno(a).</returns>
         </member>
-        <member name="M:src.SmartSchool.WebAPI.V1.Controllers.AlunoController.Patch(System.Int32,src.SmartSchool.WebAPI.V1.Dtos.AlunoRegistrarDto)">
-            <summary>
-            Método responsável por atualizar parcialmente o registro do aluno(a).
-            </summary>
-            <param name="id">Parâmetro de pesquisa do aluno(a).</param>
-            <param name="model">Instância da classe AlunoRegistrarDto.</param>
-            <returns>Registro parcialmente atualizado do aluno(a).</returns>
-        </member>
         <member name="M:src.SmartSchool.WebAPI.V1.Controllers.AlunoController.Delete(System.Int32)">
             <summary>
             Método responsável por excluir registro de aluno(a).

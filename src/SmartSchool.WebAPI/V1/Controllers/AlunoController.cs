@@ -141,7 +141,7 @@ namespace src.SmartSchool.WebAPI.V1.Controllers
         /// <param name="id">Parâmetro de pesquisa do aluno(a).</param>
         /// <param name="model">Instância da classe AlunoPatchDto.</param>
         /// <returns>Registro atualizado do aluno(a).</returns>
-        [HttpPut("{id}")]
+        [HttpPatch("{id}")]
         public IActionResult Patch(int id, AlunoPatchDto model)
         {
             var aluno = _repo.GetAlunoById(id);
@@ -180,30 +180,6 @@ namespace src.SmartSchool.WebAPI.V1.Controllers
             {
                 var msn = aluno.Ativo ? "ativado" : "desativado";
                 return Ok(new { message = $"Aluno {msn} com sucesso!" });
-            }
-
-            return BadRequest("Aluno(a) não Atualizado!");
-        }
-
-        /// <summary>
-        /// Método responsável por atualizar parcialmente o registro do aluno(a).
-        /// </summary>
-        /// <param name="id">Parâmetro de pesquisa do aluno(a).</param>
-        /// <param name="model">Instância da classe AlunoRegistrarDto.</param>
-        /// <returns>Registro parcialmente atualizado do aluno(a).</returns>
-        [HttpPatch("{id}")]
-        public IActionResult Patch(int id, AlunoRegistrarDto model)
-        {
-            var aluno = _repo.GetAlunoById(id);
-            if (aluno == null) return BadRequest("Aluno(a) não encontrado!");
-
-            _mapper.Map(model, aluno);
-
-            _repo.Update(aluno);
-
-            if (_repo.SaveChanges())
-            {
-                return Created($"/api/aluno/{model.Id}", _mapper.Map<AlunoDto>(aluno));
             }
 
             return BadRequest("Aluno(a) não Atualizado!");
