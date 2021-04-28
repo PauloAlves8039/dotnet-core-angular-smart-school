@@ -17,6 +17,7 @@ Código fonte do projeto foi baseado no curso [Crie uma Web API com Asp.NET Core
 - [Swagger v5.4.1](https://swagger.io/).
 - [AutoMapper v7.0.0](https://automapper.org/).
 - [Docker v20.10.5](https://www.docker.com/).
+- [Docker Compose v1.29.0](https://docs.docker.com/compose/).
 
 ## :camera: Screenshots
 
@@ -25,6 +26,11 @@ Código fonte do projeto foi baseado no curso [Crie uma Web API com Asp.NET Core
 ## :floppy_disk: Clonar Repositório
 
 `git clone https://github.com/PauloAlves8039/dotnet-core-angular-smart-school.git`
+
+## :white_check_mark: Executando Serviços
+
+- Abra a pasta ```SmartSchool/src/SmartSchool.WebAPI ``` no prompt de comando.
+- Execute ```docker-compose up -d``` para executar os serviços da aplicação no backend com o Docker Compose.
 
 ## Author
 
